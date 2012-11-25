@@ -21,6 +21,7 @@
   @property (strong, nonatomic) MKPointAnnotation *endPoint;
   @property (weak, nonatomic) IBOutlet UITextField *startDestination;
   @property (weak, nonatomic) IBOutlet UITextField *endDestination;
+  @property (weak, nonatomic) IBOutlet UIButton *calculateButton;
   @property (strong, nonatomic) CLLocationManager *locationManager;
   - (IBAction)startDestinationBegin:(id)sender;
   - (IBAction)endDestinationBegin:(id)sender;
@@ -35,6 +36,7 @@
 @synthesize endPoint          = _endPoint;
 @synthesize startDestination  = _startDestination;
 @synthesize endDestination    = _endDestination;
+@synthesize calculateButton   = _calculateButton;
 @synthesize locationManager   = _locationManager;
 
 #pragma mark - IBActions
@@ -49,6 +51,12 @@
 {
   _selectedTextField = _endDestination;
   [self performSegueWithIdentifier:@"loadAutocompleteViewController" sender:self];
+}
+
+
+- (IBAction)calculatePressed:(id)sender
+{
+  [self performSegueWithIdentifier:@"loadResultsViewController" sender:self];
 }
 
 
@@ -123,10 +131,22 @@
 {
   [super viewDidLoad];
   
+  // Put the start, end and calculate outside the view
+  // start destination
+  _startDestination.frame = CGRectMake(-320, 20, 320, 40);
+//  float w = _startDestination.frame.size.width;
+//  float h = _startDestination.frame.size.height;
+//  CGRect startRect = CGRectMake(-320, _startDestination.frame.origin.y, w, h);
+//  [_startDestination setFrame:startRect];
+  
+//  _startDestination.hidden = YES;
+//  _endDestination.hidden = YES;
+//  _calculateButton.hidden = YES;
+  
   if ( [CLLocationManager locationServicesEnabled] ) {
     _locationManager = [[CLLocationManager alloc] init];
     // @TODO: Replace setPurpose - but by what?
-//    [_locationManager setPurpose:@"We'd like to use your current location as your starting point. Can we?"];
+    // [_locationManager setPurpose:@"We'd like to use your current location as your starting point. Can we?"];
     [_locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
     // Mostly for one-time location grabbing..
     [_locationManager setDistanceFilter:50];
@@ -134,6 +154,23 @@
   }
   // We'll just fallback gracefully, no need to tell anyone it did'nt work out
   // between us.
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+  // Show the text field and the button, slide them from left and right, fade.
+  CGRect inFrame = [_startDestination frame];
+  CGRect outFrame = inFrame;
+  outFrame.origin.x -= inFrame.size.width;
+  
+  [UIView animateWithDuration:0.5
+                   animations:^{
+//                     _startDestination.frame.origin.x ;
+                   }
+                   completion:^(BOOL finished) {
+                     //
+                   }];
 }
 
 
@@ -160,8 +197,4 @@
   [super didReceiveMemoryWarning];
 }
 
-- (IBAction)calculatePressed:(id)sender
-{
-  [self performSegueWithIdentifier:@"loadResultsViewController" sender:self];
-}
 @end

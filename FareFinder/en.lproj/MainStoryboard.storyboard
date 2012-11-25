@@ -41,50 +41,64 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="get-Wx-KhU"/>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="izY-zo-Ovf">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="startDestinationBegin:" destination="k8p-TX-Aqs" eventType="editingDidBegin" id="dhL-PH-dkn"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="lBJ-rk-oVB">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="endDestinationBegin:" destination="k8p-TX-Aqs" eventType="editingDidBegin" id="rAo-s8-0dG"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlM-B9-8Cy">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Calculate">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="calculatePressed:" destination="k8p-TX-Aqs" eventType="touchUpInside" id="HKf-FJ-zh2"/>
-                                    <segue destination="C2n-AR-UDf" kind="modal" identifier="loadResultsViewController" modalTransitionStyle="crossDissolve" id="8V4-D5-vfA"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-Zm-EBN">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="izY-zo-Ovf">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="startDestinationBegin:" destination="k8p-TX-Aqs" eventType="editingDidBegin" id="dhL-PH-dkn"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="lBJ-rk-oVB">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="endDestinationBegin:" destination="k8p-TX-Aqs" eventType="editingDidBegin" id="rAo-s8-0dG"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlM-B9-8Cy">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Calculate">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="calculatePressed:" destination="k8p-TX-Aqs" eventType="touchUpInside" id="HKf-FJ-zh2"/>
+                                            <segue destination="C2n-AR-UDf" kind="modal" identifier="loadResultsViewController" modalTransitionStyle="crossDissolve" id="8V4-D5-vfA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="izY-zo-Ovf" firstAttribute="baseline" secondItem="zlM-B9-8Cy" secondAttribute="baseline" type="default" id="8Kr-f7-vpB"/>
+                                    <constraint firstItem="zlM-B9-8Cy" firstAttribute="bottom" secondItem="AcC-Zm-EBN" secondAttribute="bottom" type="default" id="Fjx-Yu-MNx"/>
+                                    <constraint firstItem="izY-zo-Ovf" firstAttribute="top" secondItem="AcC-Zm-EBN" secondAttribute="top" type="default" id="Lig-UC-xPn"/>
+                                    <constraint firstItem="zlM-B9-8Cy" firstAttribute="top" secondItem="lBJ-rk-oVB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LrF-ao-b4X"/>
+                                    <constraint firstItem="zlM-B9-8Cy" firstAttribute="baseline" secondItem="lBJ-rk-oVB" secondAttribute="baseline" type="default" id="Rn2-tV-X9N"/>
+                                    <constraint firstItem="lBJ-rk-oVB" firstAttribute="top" secondItem="izY-zo-Ovf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ety-Mj-fdy"/>
+                                    <constraint firstItem="lBJ-rk-oVB" firstAttribute="leading" secondItem="AcC-Zm-EBN" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fpp-Ox-o5b"/>
+                                    <constraint firstItem="izY-zo-Ovf" firstAttribute="leading" secondItem="AcC-Zm-EBN" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gU4-GK-qLk"/>
+                                    <constraint firstItem="zlM-B9-8Cy" firstAttribute="centerX" secondItem="lBJ-rk-oVB" secondAttribute="centerX" type="default" id="jhO-a8-E4A"/>
+                                    <constraint firstAttribute="trailing" secondItem="izY-zo-Ovf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lzG-tJ-m93"/>
+                                    <constraint firstAttribute="trailing" secondItem="lBJ-rk-oVB" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qX1-kP-jqI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="get-Wx-KhU" firstAttribute="centerX" secondItem="zlM-B9-8Cy" secondAttribute="centerX" type="default" id="0kC-dI-KPV"/>
-                            <constraint firstItem="get-Wx-KhU" firstAttribute="centerX" secondItem="izY-zo-Ovf" secondAttribute="centerX" type="default" id="CEK-My-6Rf"/>
                             <constraint firstItem="get-Wx-KhU" firstAttribute="leading" secondItem="uht-So-VaU" secondAttribute="leading" type="default" id="VdP-ke-3NL"/>
-                            <constraint firstItem="zlM-B9-8Cy" firstAttribute="top" secondItem="lBJ-rk-oVB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WaQ-sB-Gum"/>
+                            <constraint firstItem="AcC-Zm-EBN" firstAttribute="leading" secondItem="uht-So-VaU" secondAttribute="leading" type="default" id="W3K-9y-D2m"/>
                             <constraint firstItem="get-Wx-KhU" firstAttribute="bottom" secondItem="uht-So-VaU" secondAttribute="bottom" type="default" id="ZX7-h6-B4L"/>
-                            <constraint firstItem="get-Wx-KhU" firstAttribute="centerX" secondItem="lBJ-rk-oVB" secondAttribute="centerX" type="default" id="cDf-XE-uoH"/>
-                            <constraint firstItem="izY-zo-Ovf" firstAttribute="leading" secondItem="uht-So-VaU" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="l8L-vB-q9K"/>
-                            <constraint firstItem="izY-zo-Ovf" firstAttribute="top" secondItem="uht-So-VaU" secondAttribute="top" constant="20" symbolic="YES" type="user" id="lbf-df-UBH"/>
-                            <constraint firstItem="lBJ-rk-oVB" firstAttribute="leading" secondItem="uht-So-VaU" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rE6-t7-TTR"/>
-                            <constraint firstItem="lBJ-rk-oVB" firstAttribute="top" secondItem="izY-zo-Ovf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="si6-mG-sce"/>
+                            <constraint firstItem="AcC-Zm-EBN" firstAttribute="top" secondItem="uht-So-VaU" secondAttribute="top" constant="160" id="agO-I7-xzh"/>
+                            <constraint firstItem="AcC-Zm-EBN" firstAttribute="trailing" secondItem="uht-So-VaU" secondAttribute="trailing" type="default" id="rHm-P9-yyy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="calculateButton" destination="zlM-B9-8Cy" id="v8a-Bh-ty7"/>
                         <outlet property="endDestination" destination="lBJ-rk-oVB" id="Uyu-Dp-wDC"/>
                         <outlet property="startDestination" destination="izY-zo-Ovf" id="2g5-Ur-TrQ"/>
                         <segue destination="TkG-hf-Hfk" kind="modal" identifier="loadAutocompleteViewController" customClass="FadeCustomSegue" id="0hM-r2-9d5"/>
@@ -210,6 +224,7 @@
                 <relationship kind="action" name="calculatePressed:"/>
                 <relationship kind="action" name="endDestinationBegin:"/>
                 <relationship kind="action" name="startDestinationBegin:"/>
+                <relationship kind="outlet" name="calculateButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="endDestination" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="startDestination" candidateClass="UITextField"/>
             </relationships>
