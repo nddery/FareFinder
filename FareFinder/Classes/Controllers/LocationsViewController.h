@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Nicolas Duvieusart Dery. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface LocationsViewController : ViewController <UITextFieldDelegate>
+@interface LocationsViewController : UIViewController
 
 @end

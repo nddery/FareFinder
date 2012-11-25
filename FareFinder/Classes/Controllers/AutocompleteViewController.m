@@ -15,7 +15,7 @@
 #import "AFJSONRequestOperation.h"
 #import "NSString+Helper.h"
 
-@interface AutocompleteViewController ()
+@interface AutocompleteViewController () <UISearchBarDelegate>
   @property (strong, nonatomic) NSMutableArray *suggestions;
   @property BOOL dirty;
   @property BOOL loading;
@@ -26,12 +26,20 @@
 @implementation AutocompleteViewController
 
 @synthesize delegate            = _delegate;
+@synthesize currentLocation     = _currentLocation;
 @synthesize suggestions         = _suggestions;
 @synthesize dirty               = _dirty;
 @synthesize loading             = _loading;
 @synthesize selectedSuggestion  = _selectedSuggestion;
 
 #pragma mark - SearchBarDelegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+  // @TODO: Fix the need to have a character entered before the table appears..
+  [self loadDefaultValues];
+}
+
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
 	if ( [searchText length] > 2 ) {
@@ -42,6 +50,7 @@
 			[self loadSearchSuggestions];
     }
 	}
+  // So if the user deletes text it shows up again.
   else {
     if ( _loading ) {
       _dirty = YES;
@@ -50,6 +59,12 @@
       [self loadDefaultValues];
     }
   }
+}
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+  NSLog(@"searchBarSearchButtonClicked");
 }
 
 
@@ -117,26 +132,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
 {
   _loading = YES;
   
-  // @TODO: Get the current location and put it in a MKPointAnnotaion
+  // Put the current location in the search table
   NSMutableArray *sug = [[NSMutableArray alloc] init];
-  
-  NSArray *placemarks = [JSON objectForKey:@"Placemark"];
-  
-  for ( NSDictionary *placemark in placemarks ) {
-    NSString      *address      = [placemark objectForKey:@"address"];
-    NSDictionary  *point        = [placemark objectForKey:@"Point"];
-    NSArray       *coordinates  = [point objectForKey:@"coordinates"];
-    NSNumber      *lon          = [coordinates objectAtIndex:0];
-    NSNumber      *lat          = [coordinates objectAtIndex:1];
-    
-    MKPointAnnotation *place = [[MKPointAnnotation alloc] init];
-    place.title = address;
-    CLLocationCoordinate2D c = CLLocationCoordinate2DMake([lat doubleValue], [lon doubleValue]);
-    place.coordinate = c;
-    [sug addObject:place];
-  }
-
-  
+  [sug addObject:_currentLocation];
   self.suggestions = sug;
   
   [self.searchDisplayController.searchResultsTableView reloadData];
@@ -147,6 +145,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [self loadDefaultValues];
   }
 }
+
+
+#pragma mark - UISearchBar delegates
 
 
 #pragma mark - UITableView methods
@@ -180,10 +181,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
   // Save the suggestion that was pressed.
   _selectedSuggestion = suggestion;
   
-  // Hide that keyboard because no one will do this for us.
-//  [self.searchDisplayController.searchBar resignFirstResponder];
-//  [self.searchDisplayController.searchBar performSelector:@selector(resignFirstResponder) withObject:nil afterDelay:0.1f];
-  
   // Tell our delegate we are done.
   [_delegate autocompleteViewControllerDidComplete:self];
 }
@@ -193,6 +190,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 {
 	return [_suggestions count];
 }
+
 
 
 #pragma mark - View lifecycle
@@ -205,8 +203,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
   // We use a really small delay so it's like there is none.
   [self.searchDisplayController.searchBar performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.1f];
 }
-
-
 
 
 - (void)viewDidUnload

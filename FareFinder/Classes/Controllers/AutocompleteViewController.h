@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 Nicolas Duvieusart Dery. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
 @protocol AutocompleteViewControllerDelegate;
 
-@interface AutocompleteViewController : ViewController
+@interface AutocompleteViewController : UIViewController
   @property (weak, nonatomic) id  delegate;
+  @property (strong, nonatomic) MKPointAnnotation *currentLocation;
   @property (strong, nonatomic) MKPointAnnotation *selectedSuggestion;
-
 @end
 
 

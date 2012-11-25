@@ -17,7 +17,6 @@
 		37ED167616607B1E0058498D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37ED167516607B1E0058498D /* Default@2x.png */; };
 		37ED167816607B1E0058498D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37ED167716607B1E0058498D /* Default-568h@2x.png */; };
 		37ED167B16607B1E0058498D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37ED167916607B1E0058498D /* MainStoryboard.storyboard */; };
-		37ED167E16607B1E0058498D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ED167D16607B1E0058498D /* ViewController.m */; };
 		37F14F0A1661292E00B7B903 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37F14F091661292E00B7B903 /* Icon@2x.png */; };
 		37F14F0D1661293100B7B903 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37F14F0C1661293100B7B903 /* Icon.png */; };
 		37F14F1116612E1100B7B903 /* FadeCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F14F1016612E1100B7B903 /* FadeCustomSegue.m */; };
@@ -36,6 +35,7 @@
 		37F14F3D166131A900B7B903 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F14F3C166131A900B7B903 /* SplashScreenViewController.m */; };
 		37F14F4016613C2500B7B903 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F14F3F16613C2500B7B903 /* LocationsViewController.m */; };
 		37F14F531661D35700B7B903 /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F14F521661D35700B7B903 /* NSString+Helper.m */; };
+		37F14F5A16628DF400B7B903 /* CustomSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F14F5916628DF400B7B903 /* CustomSplitViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +53,6 @@
 		37ED167516607B1E0058498D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		37ED167716607B1E0058498D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		37ED167A16607B1E0058498D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		37ED167C16607B1E0058498D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		37ED167D16607B1E0058498D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		37F14F091661292E00B7B903 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		37F14F0C1661293100B7B903 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		37F14F0F16612E1100B7B903 /* FadeCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FadeCustomSegue.h; path = Classes/Utils/FadeCustomSegue.h; sourceTree = "<group>"; };
@@ -88,6 +86,8 @@
 		37F14F3F16613C2500B7B903 /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationsViewController.m; path = Classes/Controllers/LocationsViewController.m; sourceTree = "<group>"; };
 		37F14F511661D35700B7B903 /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Helper.h"; path = "Classes/Utils/NSString+Helper.h"; sourceTree = "<group>"; };
 		37F14F521661D35700B7B903 /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Helper.m"; path = "Classes/Utils/NSString+Helper.m"; sourceTree = "<group>"; };
+		37F14F5816628DF400B7B903 /* CustomSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSplitViewController.h; path = Classes/Controllers/CustomSplitViewController.h; sourceTree = "<group>"; };
+		37F14F5916628DF400B7B903 /* CustomSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomSplitViewController.m; path = Classes/Controllers/CustomSplitViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +141,6 @@
 			children = (
 				37F14F1316612E1900B7B903 /* Classes */,
 				37ED167916607B1E0058498D /* MainStoryboard.storyboard */,
-				37ED167C16607B1E0058498D /* ViewController.h */,
-				37ED167D16607B1E0058498D /* ViewController.m */,
 				37ED166816607B1E0058498D /* Supporting Files */,
 			);
 			path = FareFinder;
@@ -191,6 +189,8 @@
 			children = (
 				37F14F1416612E9E00B7B903 /* AutocompleteViewController.h */,
 				37F14F1516612E9E00B7B903 /* AutocompleteViewController.m */,
+				37F14F5816628DF400B7B903 /* CustomSplitViewController.h */,
+				37F14F5916628DF400B7B903 /* CustomSplitViewController.m */,
 				37F14F3E16613C2500B7B903 /* LocationsViewController.h */,
 				37F14F3F16613C2500B7B903 /* LocationsViewController.m */,
 				37F14F3B166131A900B7B903 /* SplashScreenViewController.h */,
@@ -295,7 +295,6 @@
 			files = (
 				37ED166E16607B1E0058498D /* main.m in Sources */,
 				37ED167216607B1E0058498D /* AppDelegate.m in Sources */,
-				37ED167E16607B1E0058498D /* ViewController.m in Sources */,
 				37F14F1116612E1100B7B903 /* FadeCustomSegue.m in Sources */,
 				37F14F1616612E9E00B7B903 /* AutocompleteViewController.m in Sources */,
 				37F14F2E16612FEA00B7B903 /* AFHTTPClient.m in Sources */,
@@ -310,6 +309,7 @@
 				37F14F3D166131A900B7B903 /* SplashScreenViewController.m in Sources */,
 				37F14F4016613C2500B7B903 /* LocationsViewController.m in Sources */,
 				37F14F531661D35700B7B903 /* NSString+Helper.m in Sources */,
+				37F14F5A16628DF400B7B903 /* CustomSplitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
