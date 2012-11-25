@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eqs-uL-4Ol">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -11,7 +11,24 @@
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background-568h@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="WeA-3t-ThZ"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Logo-568h@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="9t6-0E-dO5">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="568" id="NM7-O9-T4T"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9t6-0E-dO5" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="6qJ-lM-Vvs"/>
+                            <constraint firstItem="WeA-3t-ThZ" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="EuE-dS-ryr"/>
+                            <constraint firstItem="WeA-3t-ThZ" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="awe-99-AJD"/>
+                            <constraint firstItem="WeA-3t-ThZ" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="cUN-ni-5CL"/>
+                            <constraint firstItem="9t6-0E-dO5" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="dDK-53-lMr"/>
+                            <constraint firstItem="9t6-0E-dO5" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="hr7-dI-gbr"/>
+                            <constraint firstItem="9t6-0E-dO5" firstAttribute="top" secondItem="WeA-3t-ThZ" secondAttribute="top" type="default" id="vD0-qD-9wG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lLg-7k-snf"/>
                     <connections>
@@ -55,7 +72,7 @@
                                 </state>
                                 <connections>
                                     <action selector="calculatePressed:" destination="k8p-TX-Aqs" eventType="touchUpInside" id="HKf-FJ-zh2"/>
-                                    <segue destination="C2n-AR-UDf" kind="push" id="8V4-D5-vfA"/>
+                                    <segue destination="C2n-AR-UDf" kind="modal" identifier="loadResultsViewController" modalTransitionStyle="crossDissolve" id="8V4-D5-vfA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -81,20 +98,39 @@
             </objects>
             <point key="canvasLocation" x="1441" y="38"/>
         </scene>
-        <!--View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="X8X-ie-lNU">
             <objects>
-                <viewController id="C2n-AR-UDf" sceneMemberID="viewController">
+                <viewController id="C2n-AR-UDf" customClass="ResultsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Nl-aB-Ul6">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2I-dY-DxP">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wv3-Nh-tvi">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="136-IL-bGa"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wv3-Nh-tvi" firstAttribute="leading" secondItem="8Nl-aB-Ul6" secondAttribute="leading" type="default" id="1vP-9b-Oxc"/>
+                            <constraint firstAttribute="trailing" secondItem="g2I-dY-DxP" secondAttribute="trailing" constant="55" id="3zJ-Kc-nfx"/>
+                            <constraint firstItem="Wv3-Nh-tvi" firstAttribute="trailing" secondItem="8Nl-aB-Ul6" secondAttribute="trailing" type="default" id="Avp-ar-3wH"/>
+                            <constraint firstItem="Wv3-Nh-tvi" firstAttribute="top" secondItem="8Nl-aB-Ul6" secondAttribute="top" type="default" id="XaQ-Nk-LYK"/>
+                            <constraint firstAttribute="bottom" secondItem="g2I-dY-DxP" secondAttribute="bottom" constant="189" id="o5R-0A-l2D"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vOy-su-2EK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQs-O4-D5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1919" y="38"/>
+            <point key="canvasLocation" x="1918" y="38"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KTV-iP-0WA">
@@ -163,22 +199,35 @@
             </objects>
             <point key="canvasLocation" x="1441" y="722"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ExW-qN-Myf">
-            <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="eqs-uL-4Ol" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eEU-m3-gKB">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="Lg9-r5-gTD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7D2-3R-K8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="478" y="38"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="Background-568h@2x.png" width="640" height="1136"/>
+        <image name="Logo-568h@2x.png" width="640" height="1136"/>
+    </resources>
+    <classes>
+        <class className="AutocompleteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AutocompleteViewController.h"/>
+        </class>
+        <class className="LocationsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="calculatePressed:"/>
+                <relationship kind="action" name="endDestinationBegin:"/>
+                <relationship kind="action" name="startDestinationBegin:"/>
+                <relationship kind="outlet" name="endDestination" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="startDestination" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ResultsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultsViewController.h"/>
+        </class>
+        <class className="SplashScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SplashScreenViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

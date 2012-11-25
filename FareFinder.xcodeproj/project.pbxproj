@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37128DDD1662C59600EFBF50 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37128DDC1662C59600EFBF50 /* ResultsViewController.m */; };
+		37128DE51662C85D00EFBF50 /* Background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37128DDF1662C85D00EFBF50 /* Background-568h@2x.png */; };
+		37128DE61662C85D00EFBF50 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 37128DE01662C85D00EFBF50 /* Background.png */; };
+		37128DE71662C85D00EFBF50 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37128DE11662C85D00EFBF50 /* Background@2x.png */; };
+		37128DE81662C85D00EFBF50 /* Logo-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37128DE21662C85D00EFBF50 /* Logo-568h@2x.png */; };
+		37128DE91662C85D00EFBF50 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 37128DE31662C85D00EFBF50 /* Logo.png */; };
+		37128DEA1662C85D00EFBF50 /* Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37128DE41662C85D00EFBF50 /* Logo@2x.png */; };
 		37ED166216607B1E0058498D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED166116607B1E0058498D /* UIKit.framework */; };
 		37ED166416607B1E0058498D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED166316607B1E0058498D /* Foundation.framework */; };
 		37ED166616607B1E0058498D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED166516607B1E0058498D /* CoreGraphics.framework */; };
@@ -35,10 +42,17 @@
 		37F14F3D166131A900B7B903 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F14F3C166131A900B7B903 /* SplashScreenViewController.m */; };
 		37F14F4016613C2500B7B903 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F14F3F16613C2500B7B903 /* LocationsViewController.m */; };
 		37F14F531661D35700B7B903 /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F14F521661D35700B7B903 /* NSString+Helper.m */; };
-		37F14F5A16628DF400B7B903 /* CustomSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F14F5916628DF400B7B903 /* CustomSplitViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37128DDB1662C59600EFBF50 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultsViewController.h; path = Classes/Controllers/ResultsViewController.h; sourceTree = "<group>"; };
+		37128DDC1662C59600EFBF50 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultsViewController.m; path = Classes/Controllers/ResultsViewController.m; sourceTree = "<group>"; };
+		37128DDF1662C85D00EFBF50 /* Background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-568h@2x.png"; sourceTree = "<group>"; };
+		37128DE01662C85D00EFBF50 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		37128DE11662C85D00EFBF50 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		37128DE21662C85D00EFBF50 /* Logo-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-568h@2x.png"; sourceTree = "<group>"; };
+		37128DE31662C85D00EFBF50 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
+		37128DE41662C85D00EFBF50 /* Logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo@2x.png"; sourceTree = "<group>"; };
 		37ED165D16607B1E0058498D /* FareFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FareFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ED166116607B1E0058498D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37ED166316607B1E0058498D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,8 +100,6 @@
 		37F14F3F16613C2500B7B903 /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationsViewController.m; path = Classes/Controllers/LocationsViewController.m; sourceTree = "<group>"; };
 		37F14F511661D35700B7B903 /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Helper.h"; path = "Classes/Utils/NSString+Helper.h"; sourceTree = "<group>"; };
 		37F14F521661D35700B7B903 /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Helper.m"; path = "Classes/Utils/NSString+Helper.m"; sourceTree = "<group>"; };
-		37F14F5816628DF400B7B903 /* CustomSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSplitViewController.h; path = Classes/Controllers/CustomSplitViewController.h; sourceTree = "<group>"; };
-		37F14F5916628DF400B7B903 /* CustomSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomSplitViewController.m; path = Classes/Controllers/CustomSplitViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37128DDE1662C85D00EFBF50 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				37128DDF1662C85D00EFBF50 /* Background-568h@2x.png */,
+				37128DE01662C85D00EFBF50 /* Background.png */,
+				37128DE11662C85D00EFBF50 /* Background@2x.png */,
+				37128DE21662C85D00EFBF50 /* Logo-568h@2x.png */,
+				37128DE31662C85D00EFBF50 /* Logo.png */,
+				37128DE41662C85D00EFBF50 /* Logo@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		37ED165216607B1E0058498D = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +166,7 @@
 			children = (
 				37F14F1316612E1900B7B903 /* Classes */,
 				37ED167916607B1E0058498D /* MainStoryboard.storyboard */,
+				37128DDE1662C85D00EFBF50 /* Images */,
 				37ED166816607B1E0058498D /* Supporting Files */,
 			);
 			path = FareFinder;
@@ -189,10 +215,10 @@
 			children = (
 				37F14F1416612E9E00B7B903 /* AutocompleteViewController.h */,
 				37F14F1516612E9E00B7B903 /* AutocompleteViewController.m */,
-				37F14F5816628DF400B7B903 /* CustomSplitViewController.h */,
-				37F14F5916628DF400B7B903 /* CustomSplitViewController.m */,
 				37F14F3E16613C2500B7B903 /* LocationsViewController.h */,
 				37F14F3F16613C2500B7B903 /* LocationsViewController.m */,
+				37128DDB1662C59600EFBF50 /* ResultsViewController.h */,
+				37128DDC1662C59600EFBF50 /* ResultsViewController.m */,
 				37F14F3B166131A900B7B903 /* SplashScreenViewController.h */,
 				37F14F3C166131A900B7B903 /* SplashScreenViewController.m */,
 			);
@@ -283,6 +309,12 @@
 				37ED167B16607B1E0058498D /* MainStoryboard.storyboard in Resources */,
 				37F14F0A1661292E00B7B903 /* Icon@2x.png in Resources */,
 				37F14F0D1661293100B7B903 /* Icon.png in Resources */,
+				37128DE51662C85D00EFBF50 /* Background-568h@2x.png in Resources */,
+				37128DE61662C85D00EFBF50 /* Background.png in Resources */,
+				37128DE71662C85D00EFBF50 /* Background@2x.png in Resources */,
+				37128DE81662C85D00EFBF50 /* Logo-568h@2x.png in Resources */,
+				37128DE91662C85D00EFBF50 /* Logo.png in Resources */,
+				37128DEA1662C85D00EFBF50 /* Logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +341,7 @@
 				37F14F3D166131A900B7B903 /* SplashScreenViewController.m in Sources */,
 				37F14F4016613C2500B7B903 /* LocationsViewController.m in Sources */,
 				37F14F531661D35700B7B903 /* NSString+Helper.m in Sources */,
-				37F14F5A16628DF400B7B903 /* CustomSplitViewController.m in Sources */,
+				37128DDD1662C59600EFBF50 /* ResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

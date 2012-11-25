@@ -71,6 +71,9 @@
     [vc setDelegate:self];
     [vc setCurrentLocation:_startPoint];
   }
+  else if ( [segue.identifier isEqualToString:@"loadResultsViewController"] ) {
+    // @TODO: Do stuff
+  }
 }
 
 

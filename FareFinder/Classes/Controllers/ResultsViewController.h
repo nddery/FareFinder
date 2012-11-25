@@ -1,5 +1,5 @@
 //
-//  CustomSplitViewController.h
+//  ResultsViewController.h
 //  FareFinder
 //
 //  Created by Nicolas Duvieusart Dery on 12-11-25.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomSplitViewController : UIViewController
+@interface ResultsViewController : UIViewController
 
 @end
