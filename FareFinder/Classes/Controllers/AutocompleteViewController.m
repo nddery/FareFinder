@@ -64,7 +64,7 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-  NSLog(@"searchBarSearchButtonClicked");
+  [_delegate autocompleteViewControllerDidComplete:self];
 }
 
 
@@ -120,7 +120,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                        }
                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
                                        {
-                                         NSLog(@"failure %@", [error localizedDescription]);
+                                         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                         [alertView show];
                                          _loading = NO;
                                        }];
   //  operation.hasAcceptableContentType = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];

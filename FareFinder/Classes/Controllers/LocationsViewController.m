@@ -123,7 +123,7 @@
   if ( [CLLocationManager locationServicesEnabled] ) {
     _locationManager = [[CLLocationManager alloc] init];
     // @TODO: Replace setPurpose - but by what?
-    [_locationManager setPurpose:@"We'd like to use your current location as your starting point. Can we?"];
+//    [_locationManager setPurpose:@"We'd like to use your current location as your starting point. Can we?"];
     [_locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
     // Mostly for one-time location grabbing..
     [_locationManager setDistanceFilter:50];
@@ -157,6 +157,8 @@
   [super didReceiveMemoryWarning];
 }
 
-- (IBAction)calculatePressed:(id)sender {
+- (IBAction)calculatePressed:(id)sender
+{
+  [self performSegueWithIdentifier:@"loadResultsViewController" sender:self];
 }
 @end
