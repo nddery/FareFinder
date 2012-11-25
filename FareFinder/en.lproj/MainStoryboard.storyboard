@@ -9,30 +9,23 @@
             <objects>
                 <viewController id="2" customClass="SplashScreenViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background-568h@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="WeA-3t-ThZ"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Logo-568h@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="9t6-0E-dO5">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="568" id="NM7-O9-T4T"/>
-                                </constraints>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="WeA-3t-ThZ"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9t6-0E-dO5"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9t6-0E-dO5" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="6qJ-lM-Vvs"/>
+                            <constraint firstItem="WeA-3t-ThZ" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="BjN-Oi-CXj"/>
                             <constraint firstItem="WeA-3t-ThZ" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="EuE-dS-ryr"/>
-                            <constraint firstItem="WeA-3t-ThZ" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="awe-99-AJD"/>
-                            <constraint firstItem="WeA-3t-ThZ" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="cUN-ni-5CL"/>
-                            <constraint firstItem="9t6-0E-dO5" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="dDK-53-lMr"/>
-                            <constraint firstItem="9t6-0E-dO5" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="hr7-dI-gbr"/>
-                            <constraint firstItem="9t6-0E-dO5" firstAttribute="top" secondItem="WeA-3t-ThZ" secondAttribute="top" type="default" id="vD0-qD-9wG"/>
+                            <constraint firstItem="9t6-0E-dO5" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="F8V-6Y-P0e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lLg-7k-snf"/>
                     <connections>
-                        <segue destination="k8p-TX-Aqs" kind="custom" identifier="loadLocationsViewController" customClass="FadeCustomSegue" id="Dh4-5B-BP9"/>
+                        <segue destination="k8p-TX-Aqs" kind="modal" identifier="loadLocationsViewController" customClass="FadeCustomSegue" modalTransitionStyle="crossDissolve" id="Dh4-5B-BP9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -44,9 +37,10 @@
             <objects>
                 <viewController id="k8p-TX-Aqs" customClass="LocationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uht-So-VaU">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="get-Wx-KhU"/>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="izY-zo-Ovf">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -78,13 +72,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="izY-zo-Ovf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QJd-hD-Tag"/>
+                            <constraint firstItem="get-Wx-KhU" firstAttribute="centerX" secondItem="zlM-B9-8Cy" secondAttribute="centerX" type="default" id="0kC-dI-KPV"/>
+                            <constraint firstItem="get-Wx-KhU" firstAttribute="centerX" secondItem="izY-zo-Ovf" secondAttribute="centerX" type="default" id="CEK-My-6Rf"/>
+                            <constraint firstItem="get-Wx-KhU" firstAttribute="leading" secondItem="uht-So-VaU" secondAttribute="leading" type="default" id="VdP-ke-3NL"/>
                             <constraint firstItem="zlM-B9-8Cy" firstAttribute="top" secondItem="lBJ-rk-oVB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WaQ-sB-Gum"/>
-                            <constraint firstAttribute="trailing" secondItem="lBJ-rk-oVB" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cuD-dN-exc"/>
+                            <constraint firstItem="get-Wx-KhU" firstAttribute="bottom" secondItem="uht-So-VaU" secondAttribute="bottom" type="default" id="ZX7-h6-B4L"/>
+                            <constraint firstItem="get-Wx-KhU" firstAttribute="centerX" secondItem="lBJ-rk-oVB" secondAttribute="centerX" type="default" id="cDf-XE-uoH"/>
                             <constraint firstItem="izY-zo-Ovf" firstAttribute="leading" secondItem="uht-So-VaU" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="l8L-vB-q9K"/>
                             <constraint firstItem="izY-zo-Ovf" firstAttribute="top" secondItem="uht-So-VaU" secondAttribute="top" constant="20" symbolic="YES" type="user" id="lbf-df-UBH"/>
                             <constraint firstItem="lBJ-rk-oVB" firstAttribute="leading" secondItem="uht-So-VaU" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rE6-t7-TTR"/>
-                            <constraint firstItem="zlM-B9-8Cy" firstAttribute="centerX" secondItem="lBJ-rk-oVB" secondAttribute="centerX" type="default" id="rR6-s8-mJh"/>
                             <constraint firstItem="lBJ-rk-oVB" firstAttribute="top" secondItem="izY-zo-Ovf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="si6-mG-sce"/>
                         </constraints>
                     </view>
@@ -103,7 +99,7 @@
             <objects>
                 <viewController id="C2n-AR-UDf" customClass="ResultsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Nl-aB-Ul6">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2I-dY-DxP">
@@ -137,7 +133,7 @@
             <objects>
                 <viewController id="Ojt-qE-eqz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3ra-8e-51F">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -151,7 +147,7 @@
             <objects>
                 <viewController id="C6r-pu-q5h" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="og1-KN-YX1">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -165,7 +161,7 @@
             <objects>
                 <viewController id="TkG-hf-Hfk" customClass="AutocompleteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yjK-q8-bBc">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kcM-Jj-FDD">
@@ -201,8 +197,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background-568h@2x.png" width="640" height="1136"/>
-        <image name="Logo-568h@2x.png" width="640" height="1136"/>
+        <image name="Background.png" width="320" height="480"/>
+        <image name="Logo.png" width="320" height="480"/>
     </resources>
     <classes>
         <class className="AutocompleteViewController" superclassName="UIViewController">
@@ -231,6 +227,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
