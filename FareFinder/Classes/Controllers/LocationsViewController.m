@@ -131,18 +131,6 @@
 {
   [super viewDidLoad];
   
-  // Put the start, end and calculate outside the view
-  // start destination
-  _startDestination.frame = CGRectMake(-320, 20, 320, 40);
-//  float w = _startDestination.frame.size.width;
-//  float h = _startDestination.frame.size.height;
-//  CGRect startRect = CGRectMake(-320, _startDestination.frame.origin.y, w, h);
-//  [_startDestination setFrame:startRect];
-  
-//  _startDestination.hidden = YES;
-//  _endDestination.hidden = YES;
-//  _calculateButton.hidden = YES;
-  
   if ( [CLLocationManager locationServicesEnabled] ) {
     _locationManager = [[CLLocationManager alloc] init];
     // @TODO: Replace setPurpose - but by what?
@@ -159,14 +147,10 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-  // Show the text field and the button, slide them from left and right, fade.
-  CGRect inFrame = [_startDestination frame];
-  CGRect outFrame = inFrame;
-  outFrame.origin.x -= inFrame.size.width;
-  
-  [UIView animateWithDuration:0.5
+  // Animate the quote button in
+  [UIView animateWithDuration:0.3
                    animations:^{
-//                     _startDestination.frame.origin.x ;
+                     _calculateButton.alpha = 1;
                    }
                    completion:^(BOOL finished) {
                      //
@@ -177,6 +161,27 @@
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
+  
+  CGSize appDim = [[UIScreen mainScreen] applicationFrame].size;
+  
+  // Move the start field to the left
+  _startDestination.frame = CGRectMake(
+                                       _startDestination.frame.origin.x - appDim.width,
+                                       _startDestination.frame.origin.y,
+                                       _startDestination.frame.size.width,
+                                       _startDestination.frame.size.height
+                                       );
+  
+  // Move the end field to the right
+  _endDestination.frame = CGRectMake(
+                                     _endDestination.frame.origin.x + appDim.width,
+                                     _endDestination.frame.origin.y,
+                                     _endDestination.frame.size.width,
+                                     _endDestination.frame.size.height
+                                     );
+  
+  // Get quote button will fade, set opacity
+  _calculateButton.alpha = 0;
   
   if ( _locationManager )
     [_locationManager startUpdatingLocation];

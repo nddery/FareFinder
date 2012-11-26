@@ -59,7 +59,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlM-B9-8Cy">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Calculate">
+                                        <state key="normal" title="Get your quote">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -75,7 +75,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="izY-zo-Ovf" firstAttribute="baseline" secondItem="zlM-B9-8Cy" secondAttribute="baseline" type="default" id="8Kr-f7-vpB"/>
-                                    <constraint firstItem="zlM-B9-8Cy" firstAttribute="bottom" secondItem="AcC-Zm-EBN" secondAttribute="bottom" type="default" id="Fjx-Yu-MNx"/>
                                     <constraint firstItem="izY-zo-Ovf" firstAttribute="top" secondItem="AcC-Zm-EBN" secondAttribute="top" type="default" id="Lig-UC-xPn"/>
                                     <constraint firstItem="zlM-B9-8Cy" firstAttribute="top" secondItem="lBJ-rk-oVB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LrF-ao-b4X"/>
                                     <constraint firstItem="zlM-B9-8Cy" firstAttribute="baseline" secondItem="lBJ-rk-oVB" secondAttribute="baseline" type="default" id="Rn2-tV-X9N"/>
@@ -90,6 +89,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AcC-Zm-EBN" firstAttribute="centerY" secondItem="get-Wx-KhU" secondAttribute="centerY" type="default" id="IcV-BR-Rk7"/>
                             <constraint firstItem="get-Wx-KhU" firstAttribute="leading" secondItem="uht-So-VaU" secondAttribute="leading" type="default" id="VdP-ke-3NL"/>
                             <constraint firstItem="AcC-Zm-EBN" firstAttribute="leading" secondItem="uht-So-VaU" secondAttribute="leading" type="default" id="W3K-9y-D2m"/>
                             <constraint firstItem="get-Wx-KhU" firstAttribute="bottom" secondItem="uht-So-VaU" secondAttribute="bottom" type="default" id="ZX7-h6-B4L"/>
