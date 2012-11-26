@@ -131,6 +131,13 @@
 {
   [super viewDidLoad];
   
+  // Add padding to the textfields.
+  UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 20)];
+  _startDestination.leftView = paddingView;
+  _startDestination.leftViewMode = UITextFieldViewModeAlways;
+  _endDestination.leftView = paddingView;
+  _endDestination.leftViewMode = UITextFieldViewModeAlways;
+  
   if ( [CLLocationManager locationServicesEnabled] ) {
     _locationManager = [[CLLocationManager alloc] init];
     // @TODO: Replace setPurpose - but by what?
