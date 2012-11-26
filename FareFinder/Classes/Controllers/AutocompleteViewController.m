@@ -79,9 +79,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void) loadSearchSuggestions
 {
 	_loading = YES;
-	NSString *query = self.searchDisplayController.searchBar.text;
-  // You could limit the search to a region (e.g. a country) by appending more text to the query
-	// example: query = [NSString stringWithFormat:@"%@, Spain", text];
+	// NSString *query = self.searchDisplayController.searchBar.text;
+  // Search only in Canada.
+  NSString *query = [NSString stringWithFormat:@"%@, Canada", self.searchDisplayController.searchBar.text];
 	NSString *urlEncode = [query urlEncode];
 	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&hl=%@&oe=UTF8", urlEncode, [[NSLocale currentLocale] localeIdentifier]];
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
@@ -124,7 +124,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                          [alertView show];
                                          _loading = NO;
                                        }];
-  //  operation.hasAcceptableContentType = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
   [operation start];
 }
 

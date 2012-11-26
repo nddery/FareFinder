@@ -128,6 +128,13 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		3746865B1662D7A20088F272 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		37ED165216607B1E0058498D = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				37F14F1716612EA300B7B903 /* Controllers */,
+				3746865B1662D7A20088F272 /* Views */,
 				37F14F1216612E1500B7B903 /* Utils */,
 			);
 			name = Classes;
