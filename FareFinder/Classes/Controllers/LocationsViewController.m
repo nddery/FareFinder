@@ -135,7 +135,8 @@
   UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 20)];
   _startDestination.leftView = paddingView;
   _startDestination.leftViewMode = UITextFieldViewModeAlways;
-  _endDestination.leftView = paddingView;
+  UIView *paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 20)];
+  _endDestination.leftView = paddingView2;
   _endDestination.leftViewMode = UITextFieldViewModeAlways;
   
   if ( [CLLocationManager locationServicesEnabled] ) {
