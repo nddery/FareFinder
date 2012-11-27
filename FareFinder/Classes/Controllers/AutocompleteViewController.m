@@ -79,11 +79,12 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void) loadSearchSuggestions
 {
 	_loading = YES;
-	// NSString *query = self.searchDisplayController.searchBar.text;
-  // Search only in Canada.
-  NSString *query = [NSString stringWithFormat:@"%@, Canada", self.searchDisplayController.searchBar.text];
+	NSString *query = self.searchDisplayController.searchBar.text;
 	NSString *urlEncode = [query urlEncode];
-	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&hl=%@&oe=UTF8", urlEncode, [[NSLocale currentLocale] localeIdentifier]];
+	NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=%@&location=%f,%f&rankby=distance&sensor=true&key=AIzaSyAdbnNVct45n6iMBSnowEYmFY-wze64Hc0", urlEncode, _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude];
+  
+//  NSLog(@"%f, %f", _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude);
+//	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&hl=%@&oe=UTF8&location=%f,%f&rankby=distance", urlEncode, [[NSLocale currentLocale] localeIdentifier], _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude];
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
   
   AFJSONRequestOperation *operation = [AFJSONRequestOperation
@@ -91,16 +92,18 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
                                        {
                                          NSMutableArray *sug = [[NSMutableArray alloc] init];
-                                         
-                                         NSArray *placemarks = [JSON objectForKey:@"Placemark"];
+
+                                         NSArray *placemarks = [JSON objectForKey:@"results"];
                                          
                                          for ( NSDictionary *placemark in placemarks ) {
-                                           NSString      *address      = [placemark objectForKey:@"address"];
-                                           NSDictionary  *point        = [placemark objectForKey:@"Point"];
-                                           NSArray       *coordinates  = [point objectForKey:@"coordinates"];
-                                           NSNumber      *lon          = [coordinates objectAtIndex:0];
-                                           NSNumber      *lat          = [coordinates objectAtIndex:1];
-                                           
+                                           NSString      *address      = [placemark objectForKey:@"name"];
+                                           NSDictionary  *point        = [placemark objectForKey:@"geometry"];
+                                           NSDictionary  *coordinates  = [point objectForKey:@"location"];
+//                                           NSNumber      *lon          = [coordinates objectAtIndex:0];
+//                                           NSNumber      *lat          = [coordinates objectAtIndex:1];
+                                           NSNumber      *lon          = [coordinates objectForKey:@"lat"];
+                                           NSNumber      *lat          = [coordinates objectForKey:@"lng"];
+                                         
                                            MKPointAnnotation *place = [[MKPointAnnotation alloc] init];
                                            place.title = address;
                                            CLLocationCoordinate2D c = CLLocationCoordinate2DMake([lat doubleValue], [lon doubleValue]);
