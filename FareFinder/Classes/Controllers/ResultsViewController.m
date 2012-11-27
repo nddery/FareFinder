@@ -53,7 +53,11 @@
   
   _data = [DataSingleton sharedInstance];
   
-  
+  // Set view bg color
+  [self.view setBackgroundColor:[UIColor colorWithRed:225/255.f
+                                                green:226/255.f
+                                                 blue:227/255.f
+                                                alpha:1]];
   
   // @TODO: WTF can't set frame for a IB map ?????
   // Adjust the height of the map.
