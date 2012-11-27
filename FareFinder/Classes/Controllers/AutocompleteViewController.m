@@ -12,10 +12,12 @@
 //
 
 #import "AutocompleteViewController.h"
+#import "DataSingleton.h"
 #import "AFJSONRequestOperation.h"
 #import "NSString+Helper.h"
 
 @interface AutocompleteViewController () <UISearchBarDelegate>
+  @property DataSingleton *data;
   @property (strong, nonatomic) NSMutableArray *suggestions;
   @property BOOL dirty;
   @property BOOL loading;
@@ -25,9 +27,9 @@
 
 @implementation AutocompleteViewController
 
+@synthesize data                = _data;
 @synthesize delegate            = _delegate;
 @synthesize currentSearch       = _currentSearch;
-@synthesize currentLocation     = _currentLocation;
 @synthesize suggestions         = _suggestions;
 @synthesize dirty               = _dirty;
 @synthesize loading             = _loading;
@@ -84,7 +86,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 	NSString *urlEncode = [query urlEncode];
   // Pass in ll and spn for location biased results
   // See https://developers.google.com/maps/documentation/geocoding/v2/?hl=fr#Viewports
-	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&hl=%@&oe=UTF8&ll=%f,%f&spn=0.247048,0.294914", urlEncode, [[NSLocale currentLocale] localeIdentifier], _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude];
+	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&hl=%@&oe=UTF8&ll=%f,%f&spn=0.247048,0.294914", urlEncode, [[NSLocale currentLocale] localeIdentifier], _data.currentLocation.coordinate.latitude, _data.currentLocation.coordinate.longitude];
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
   
   AFJSONRequestOperation *operation = [AFJSONRequestOperation
@@ -135,7 +137,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
   
   // Put the current location in the search table
   NSMutableArray *sug = [[NSMutableArray alloc] init];
-  [sug addObject:_currentLocation];
+  [sug addObject:_data.currentLocation];
   self.suggestions = sug;
   
   [self.searchDisplayController.searchResultsTableView reloadData];
@@ -146,9 +148,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [self loadDefaultValues];
   }
 }
-
-
-#pragma mark - UISearchBar delegates
 
 
 #pragma mark - UITableView methods
@@ -198,6 +197,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  _data = [DataSingleton sharedInstance];
+  
   _dirty = NO;
   _loading = NO;
   self.title = @"Search a location";

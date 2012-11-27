@@ -14,7 +14,6 @@
 @interface AutocompleteViewController : UIViewController
   @property (weak, nonatomic) id  delegate;
   @property (strong, nonatomic) NSString *currentSearch;
-  @property (strong, nonatomic) MKPointAnnotation *currentLocation;
   @property (strong, nonatomic) MKPointAnnotation *selectedSuggestion;
 @end
 
