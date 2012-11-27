@@ -8,8 +8,10 @@
 
 #import "ResultsViewController.h"
 #import "MapViewController.h"
+#import "DataSingleton.h"
 
 @interface ResultsViewController ()
+  @property DataSingleton *data;
   @property float price;
   @property float time;
   @property float km;
@@ -18,9 +20,7 @@
 
 @implementation ResultsViewController
 
-@synthesize startPoint  = _startPoint;
-@synthesize endPoint    = _endPoint;
-
+@synthesize data = _data;
 
 #pragma mark - IBActions
 - (void)mapButtonPressed:(id)sender
@@ -33,9 +33,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
   if ( [segue.identifier isEqualToString:@"loadMapViewController"] ) {
-    MapViewController *vc = [segue destinationViewController];
-    [vc setStartPoint:_startPoint];
-    [vc setEndPoint:_endPoint];
+    // MapViewController *vc = [segue destinationViewController];
   }
 }
 
@@ -44,6 +42,11 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  _data = [DataSingleton sharedInstance];
+  
+  NSLog(@"%@", _data.startPoint.title);
+  NSLog(@"%@", _data.endPoint.title);
 }
 
 

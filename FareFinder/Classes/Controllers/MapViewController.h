@@ -7,9 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
 @interface MapViewController : UIViewController
-  @property (strong, nonatomic) MKPointAnnotation *startPoint;
-  @property (strong, nonatomic) MKPointAnnotation *endPoint;
 @end

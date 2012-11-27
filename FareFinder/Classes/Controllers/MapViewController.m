@@ -7,11 +7,14 @@
 //
 
 #import "MapViewController.h"
+#import "DataSingleton.h"
 #import "AFJSONRequestOperation.h"
+#import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
 @interface MapViewController () <MKMapViewDelegate,
                                   CLLocationManagerDelegate>
+  @property DataSingleton *data;
   @property (weak, nonatomic) IBOutlet MKMapView *mapView;
   @property (strong, nonatomic) CLLocationManager *locationManager;
   @property (strong, nonatomic) NSMutableArray *path;
@@ -21,8 +24,7 @@
 
 @implementation MapViewController
 
-@synthesize startPoint      = _startPoint;
-@synthesize endPoint        = _endPoint;
+@synthesize data            = _data;
 @synthesize mapView         = _mapView;
 @synthesize locationManager = _locationManager;
 @synthesize path            = _path;
@@ -31,7 +33,7 @@
 // http://iosguy.com/tag/mkmapview/
 - (void)retrievePolyline
 {
-	NSString *urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&sensor=true", _startPoint.coordinate.latitude, _startPoint.coordinate.longitude, _endPoint.coordinate.latitude, _endPoint.coordinate.longitude];
+	NSString *urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&sensor=true", _data.startPoint.coordinate.latitude, _data.startPoint.coordinate.longitude, _data.endPoint.coordinate.latitude, _data.endPoint.coordinate.longitude];
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
   
   AFJSONRequestOperation *operation = [AFJSONRequestOperation
@@ -74,8 +76,10 @@
 {
   [super viewDidLoad];
   
+  _data = [DataSingleton sharedInstance];
+  
   // Set region to view for the map
-  MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(_startPoint.coordinate, 10, 10);
+  MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(_data.startPoint.coordinate, 10, 10);
   MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
   [_mapView setRegion:adjustedRegion animated:NO];
   
