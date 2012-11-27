@@ -132,13 +132,8 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBh-cR-uPL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBh-cR-uPL">
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9zI-nL-gXp">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="8OT-Dd-tpa"/>
-                                        </constraints>
-                                    </mapView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYG-Ma-gBo">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="89" id="nDE-da-f7w"/>
@@ -164,21 +159,21 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Map.png" translatesAutoresizingMaskIntoConstraints="NO" id="s6M-Xc-YMU"/>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80796146641109801" green="0.79753076747441465" blue="0.83673469387755106" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="9zI-nL-gXp" firstAttribute="centerX" secondItem="BBh-cR-uPL" secondAttribute="centerX" type="default" id="3KU-vD-qLc"/>
+                                    <constraint firstItem="AYG-Ma-gBo" firstAttribute="top" secondItem="BBh-cR-uPL" secondAttribute="top" constant="48" id="0lu-Du-QHJ"/>
+                                    <constraint firstItem="s6M-Xc-YMU" firstAttribute="top" secondItem="BBh-cR-uPL" secondAttribute="top" type="default" id="G5R-PY-MbL"/>
                                     <constraint firstItem="AYG-Ma-gBo" firstAttribute="leading" secondItem="BBh-cR-uPL" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R5D-yG-G97"/>
                                     <constraint firstItem="aRp-l0-wAK" firstAttribute="leading" secondItem="BBh-cR-uPL" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Sn9-TB-EEk"/>
                                     <constraint firstItem="rni-cI-Gje" firstAttribute="trailing" secondItem="aRp-l0-wAK" secondAttribute="trailing" type="default" id="Sto-DG-7kA"/>
-                                    <constraint firstItem="9zI-nL-gXp" firstAttribute="leading" secondItem="BBh-cR-uPL" secondAttribute="leading" type="default" id="Z6H-tU-l7Q"/>
-                                    <constraint firstItem="9zI-nL-gXp" firstAttribute="trailing" secondItem="BBh-cR-uPL" secondAttribute="trailing" type="default" id="aGc-aM-MDk"/>
-                                    <constraint firstItem="AYG-Ma-gBo" firstAttribute="top" secondItem="BBh-cR-uPL" secondAttribute="top" constant="48" id="aVO-d7-w3P"/>
                                     <constraint firstItem="rni-cI-Gje" firstAttribute="top" secondItem="BBh-cR-uPL" secondAttribute="top" constant="163" id="cbn-sX-kIr"/>
+                                    <constraint firstItem="s6M-Xc-YMU" firstAttribute="trailing" secondItem="BBh-cR-uPL" secondAttribute="trailing" type="default" id="dpp-A9-CVF"/>
                                     <constraint firstItem="rni-cI-Gje" firstAttribute="leading" secondItem="BBh-cR-uPL" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mqk-nS-oUR"/>
+                                    <constraint firstItem="s6M-Xc-YMU" firstAttribute="leading" secondItem="BBh-cR-uPL" secondAttribute="leading" type="default" id="on0-Fj-a6h"/>
                                     <constraint firstAttribute="trailing" secondItem="AYG-Ma-gBo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qZT-xy-npX"/>
                                     <constraint firstItem="aRp-l0-wAK" firstAttribute="top" secondItem="AYG-Ma-gBo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yXj-W9-0Mk"/>
-                                    <constraint firstItem="9zI-nL-gXp" firstAttribute="top" secondItem="BBh-cR-uPL" secondAttribute="top" type="default" id="zbS-Eg-Hc8"/>
                                     <constraint firstAttribute="bottom" secondItem="rni-cI-Gje" secondAttribute="bottom" constant="276" id="zu3-qM-xR4"/>
                                 </constraints>
                             </scrollView>
@@ -193,7 +188,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="vOy-su-2EK"/>
                     <connections>
-                        <outlet property="mapView" destination="9zI-nL-gXp" id="Bqw-ag-hjg"/>
                         <outlet property="scrollView" destination="BBh-cR-uPL" id="Jy6-vw-BUb"/>
                         <segue destination="C6r-pu-q5h" kind="modal" identifier="loadMapViewController" modalTransitionStyle="crossDissolve" id="8ub-3u-KLG"/>
                     </connections>
@@ -291,7 +285,44 @@
         <image name="Background.png" width="320" height="480"/>
         <image name="LocationsBG.png" width="320" height="152"/>
         <image name="Logo.png" width="320" height="480"/>
+        <image name="Map.png" width="320" height="50"/>
     </resources>
+    <classes>
+        <class className="AutocompleteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AutocompleteViewController.h"/>
+        </class>
+        <class className="LocationsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="calculatePressed:"/>
+                <relationship kind="action" name="endDestinationBegin:"/>
+                <relationship kind="action" name="startDestinationBegin:"/>
+                <relationship kind="outlet" name="calculateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="endDestination" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="startDestination" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ResultsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="mapButtonPressed:"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="SplashScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SplashScreenViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

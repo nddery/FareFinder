@@ -17,6 +17,7 @@
   @property float km;
   @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
   @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) MKMapView  *map;
   - (IBAction)mapButtonPressed:(id)sender;
 @end
 
@@ -25,6 +26,7 @@
 @synthesize data        = _data;
 @synthesize scrollView  = _scrollView;
 @synthesize mapView     = _mapView;
+@synthesize map         = _map;
 
 #pragma mark - IBActions
 - (void)mapButtonPressed:(id)sender
@@ -47,13 +49,22 @@
 {
   [super viewDidLoad];
   
-  CGSize appDim = [[UIScreen mainScreen] applicationFrame].size;
+//  CGSize appDim = [[UIScreen mainScreen] applicationFrame].size;
   
   _data = [DataSingleton sharedInstance];
   
-  // Adjust the height of the map.
-  [_mapView setFrame:CGRectMake(0, -(appDim.height - 50), appDim.width, appDim.height-50)];
   
+  
+  // @TODO: WTF can't set frame for a IB map ?????
+  // Adjust the height of the map.
+//  [_mapView setFrame:CGRectMake(0, -(appDim.height - 50), appDim.width, appDim.height-50)];
+//  [_mapView setFrame:CGRectMake(0, 0, 320, 400)];
+//  NSLog(@"%d", _mapView.frame.size.height);
+//  // Also need to adjust scroll view height
+//  [_scrollView setContentSize:CGSizeMake(appDim.width, _scrollView.frame.size.height + _mapView.frame.size.height)];
+//  _map = [[MKMapView alloc] initWithFrame:CGRectMake(0, -(appDim.height - 50), appDim.width, appDim.height - 50)];
+//  _map = [[MKMapView alloc] initWithFrame:CGRectMake(0, appDim.width, 320, 400)];
+//  [self.view addSubview:_map];
   
   // Get the path
 }
