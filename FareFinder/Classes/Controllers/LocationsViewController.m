@@ -8,6 +8,7 @@
 
 #import "LocationsViewController.h"
 #import "AutocompleteViewController.h"
+#import "ResultsViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
 @interface LocationsViewController () <AutocompleteViewControllerDelegate,
@@ -78,9 +79,13 @@
     AutocompleteViewController *vc = [segue destinationViewController];
     [vc setDelegate:self];
     [vc setCurrentLocation:_startPoint];
+    [vc setCurrentSearch:_selectedTextField.text];
   }
   else if ( [segue.identifier isEqualToString:@"loadResultsViewController"] ) {
-    // @TODO: Do stuff
+    ResultsViewController *vc = [segue destinationViewController];
+    // Set start & end point
+    [vc setStartPoint:_startPoint];
+    [vc setEndPoint:_endPoint];
   }
 }
 

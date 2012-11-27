@@ -26,6 +26,7 @@
 @implementation AutocompleteViewController
 
 @synthesize delegate            = _delegate;
+@synthesize currentSearch       = _currentSearch;
 @synthesize currentLocation     = _currentLocation;
 @synthesize suggestions         = _suggestions;
 @synthesize dirty               = _dirty;
@@ -200,6 +201,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
   _dirty = NO;
   _loading = NO;
   self.title = @"Search a location";
+  self.searchDisplayController.searchBar.text = _currentSearch;
   // We use a really small delay so it's like there is none.
   [self.searchDisplayController.searchBar performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.1f];
 }

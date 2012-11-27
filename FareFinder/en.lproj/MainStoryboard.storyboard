@@ -162,17 +162,17 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="aRp-l0-wAK" firstAttribute="leading" secondItem="AYG-Ma-gBo" secondAttribute="leading" type="default" id="Fgj-qZ-Y4t"/>
+                                    <constraint firstItem="AYG-Ma-gBo" firstAttribute="top" secondItem="BBh-cR-uPL" secondAttribute="top" constant="48" id="As8-qK-8wB"/>
                                     <constraint firstItem="Wv3-Nh-tvi" firstAttribute="leading" secondItem="BBh-cR-uPL" secondAttribute="leading" type="default" id="QNu-11-x41"/>
+                                    <constraint firstItem="AYG-Ma-gBo" firstAttribute="leading" secondItem="BBh-cR-uPL" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="R5D-yG-G97"/>
                                     <constraint firstItem="aRp-l0-wAK" firstAttribute="leading" secondItem="BBh-cR-uPL" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Sn9-TB-EEk"/>
                                     <constraint firstItem="rni-cI-Gje" firstAttribute="trailing" secondItem="aRp-l0-wAK" secondAttribute="trailing" type="default" id="Sto-DG-7kA"/>
                                     <constraint firstItem="Wv3-Nh-tvi" firstAttribute="trailing" secondItem="BBh-cR-uPL" secondAttribute="trailing" type="default" id="Tss-qw-u1e"/>
                                     <constraint firstItem="Wv3-Nh-tvi" firstAttribute="top" secondItem="BBh-cR-uPL" secondAttribute="top" type="default" id="VLQ-78-qpF"/>
                                     <constraint firstItem="rni-cI-Gje" firstAttribute="top" secondItem="BBh-cR-uPL" secondAttribute="top" constant="163" id="cbn-sX-kIr"/>
                                     <constraint firstItem="rni-cI-Gje" firstAttribute="leading" secondItem="BBh-cR-uPL" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mqk-nS-oUR"/>
-                                    <constraint firstItem="aRp-l0-wAK" firstAttribute="top" secondItem="BBh-cR-uPL" secondAttribute="top" constant="145" id="ndB-ER-wKr"/>
                                     <constraint firstAttribute="bottom" secondItem="rni-cI-Gje" secondAttribute="bottom" constant="276" id="pjP-g7-Bxh"/>
-                                    <constraint firstItem="Wv3-Nh-tvi" firstAttribute="centerX" secondItem="AYG-Ma-gBo" secondAttribute="centerX" type="default" id="rQN-AS-qgP"/>
+                                    <constraint firstAttribute="trailing" secondItem="AYG-Ma-gBo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qZT-xy-npX"/>
                                     <constraint firstItem="aRp-l0-wAK" firstAttribute="top" secondItem="AYG-Ma-gBo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yXj-W9-0Mk"/>
                                 </constraints>
                             </scrollView>

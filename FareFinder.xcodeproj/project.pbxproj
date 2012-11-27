@@ -14,6 +14,10 @@
 		37128DE81662C85D00EFBF50 /* Logo-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37128DE21662C85D00EFBF50 /* Logo-568h@2x.png */; };
 		37128DE91662C85D00EFBF50 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 37128DE31662C85D00EFBF50 /* Logo.png */; };
 		37128DEA1662C85D00EFBF50 /* Logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37128DE41662C85D00EFBF50 /* Logo@2x.png */; };
+		372B255E1664495D0037D64F /* Map-568h@2x in Resources */ = {isa = PBXBuildFile; fileRef = 372B255B1664495D0037D64F /* Map-568h@2x */; };
+		372B255F1664495D0037D64F /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 372B255C1664495D0037D64F /* Map.png */; };
+		372B25601664495D0037D64F /* Map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 372B255D1664495D0037D64F /* Map@2x.png */; };
+		372B256316644B270037D64F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B256216644B270037D64F /* MapViewController.m */; };
 		376FBE8D16630A970005E246 /* LocationsBG-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376FBE8A16630A970005E246 /* LocationsBG-568h@2x.png */; };
 		376FBE8E16630A970005E246 /* LocationsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 376FBE8B16630A970005E246 /* LocationsBG.png */; };
 		376FBE8F16630A970005E246 /* LocationsBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376FBE8C16630A970005E246 /* LocationsBG@2x.png */; };
@@ -55,12 +59,14 @@
 		37128DE21662C85D00EFBF50 /* Logo-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-568h@2x.png"; sourceTree = "<group>"; };
 		37128DE31662C85D00EFBF50 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		37128DE41662C85D00EFBF50 /* Logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo@2x.png"; sourceTree = "<group>"; };
+		372B255B1664495D0037D64F /* Map-568h@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Map-568h@2x"; sourceTree = "<group>"; };
+		372B255C1664495D0037D64F /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map.png; sourceTree = "<group>"; };
+		372B255D1664495D0037D64F /* Map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map@2x.png"; sourceTree = "<group>"; };
+		372B256116644B260037D64F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Classes/Controllers/MapViewController.h; sourceTree = "<group>"; };
+		372B256216644B270037D64F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Classes/Controllers/MapViewController.m; sourceTree = "<group>"; };
 		376FBE8A16630A970005E246 /* LocationsBG-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LocationsBG-568h@2x.png"; sourceTree = "<group>"; };
 		376FBE8B16630A970005E246 /* LocationsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationsBG.png; sourceTree = "<group>"; };
 		376FBE8C16630A970005E246 /* LocationsBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LocationsBG@2x.png"; sourceTree = "<group>"; };
-		376FBE9116630C020005E246 /* Map-568h@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Map-568h@2x"; sourceTree = "<group>"; };
-		376FBE9216630C020005E246 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map.png; sourceTree = "<group>"; };
-		376FBE9316630C020005E246 /* Map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map@2x.png"; sourceTree = "<group>"; };
 		37ED165D16607B1E0058498D /* FareFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FareFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ED166116607B1E0058498D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37ED166316607B1E0058498D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -136,9 +142,9 @@
 				37128DE21662C85D00EFBF50 /* Logo-568h@2x.png */,
 				37128DE31662C85D00EFBF50 /* Logo.png */,
 				37128DE41662C85D00EFBF50 /* Logo@2x.png */,
-				376FBE9116630C020005E246 /* Map-568h@2x */,
-				376FBE9216630C020005E246 /* Map.png */,
-				376FBE9316630C020005E246 /* Map@2x.png */,
+				372B255B1664495D0037D64F /* Map-568h@2x */,
+				372B255C1664495D0037D64F /* Map.png */,
+				372B255D1664495D0037D64F /* Map@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -235,6 +241,8 @@
 				37F14F1516612E9E00B7B903 /* AutocompleteViewController.m */,
 				37F14F3E16613C2500B7B903 /* LocationsViewController.h */,
 				37F14F3F16613C2500B7B903 /* LocationsViewController.m */,
+				372B256116644B260037D64F /* MapViewController.h */,
+				372B256216644B270037D64F /* MapViewController.m */,
 				37128DDB1662C59600EFBF50 /* ResultsViewController.h */,
 				37128DDC1662C59600EFBF50 /* ResultsViewController.m */,
 				37F14F3B166131A900B7B903 /* SplashScreenViewController.h */,
@@ -336,6 +344,9 @@
 				376FBE8D16630A970005E246 /* LocationsBG-568h@2x.png in Resources */,
 				376FBE8E16630A970005E246 /* LocationsBG.png in Resources */,
 				376FBE8F16630A970005E246 /* LocationsBG@2x.png in Resources */,
+				372B255E1664495D0037D64F /* Map-568h@2x in Resources */,
+				372B255F1664495D0037D64F /* Map.png in Resources */,
+				372B25601664495D0037D64F /* Map@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +373,7 @@
 				37F14F4016613C2500B7B903 /* LocationsViewController.m in Sources */,
 				37F14F531661D35700B7B903 /* NSString+Helper.m in Sources */,
 				37128DDD1662C59600EFBF50 /* ResultsViewController.m in Sources */,
+				372B256316644B270037D64F /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
