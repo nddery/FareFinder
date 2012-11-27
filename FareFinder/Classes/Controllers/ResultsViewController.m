@@ -25,7 +25,7 @@
 #pragma mark - IBActions
 - (void)mapButtonPressed:(id)sender
 {
-  [self performSegueWithIdentifier:@"laodMapViewController" sender:self];
+  [self performSegueWithIdentifier:@"loadMapViewController" sender:self];
 }
 
 
