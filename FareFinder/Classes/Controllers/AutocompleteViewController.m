@@ -81,10 +81,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
 	_loading = YES;
 	NSString *query = self.searchDisplayController.searchBar.text;
 	NSString *urlEncode = [query urlEncode];
-	NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=%@&location=%f,%f&rankby=distance&sensor=true&key=AIzaSyAdbnNVct45n6iMBSnowEYmFY-wze64Hc0", urlEncode, _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude];
-  
-//  NSLog(@"%f, %f", _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude);
-//	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&hl=%@&oe=UTF8&location=%f,%f&rankby=distance", urlEncode, [[NSLocale currentLocale] localeIdentifier], _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude];
+  // Pass in ll and spn for location biased results
+  // See https://developers.google.com/maps/documentation/geocoding/v2/?hl=fr#Viewports
+	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&hl=%@&oe=UTF8&ll=%f,%f&spn=0.247048,0.294914", urlEncode, [[NSLocale currentLocale] localeIdentifier], _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude];
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
   
   AFJSONRequestOperation *operation = [AFJSONRequestOperation
@@ -93,16 +92,14 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                        {
                                          NSMutableArray *sug = [[NSMutableArray alloc] init];
 
-                                         NSArray *placemarks = [JSON objectForKey:@"results"];
+                                         NSArray *placemarks = [JSON objectForKey:@"Placemark"];
                                          
                                          for ( NSDictionary *placemark in placemarks ) {
-                                           NSString      *address      = [placemark objectForKey:@"name"];
-                                           NSDictionary  *point        = [placemark objectForKey:@"geometry"];
-                                           NSDictionary  *coordinates  = [point objectForKey:@"location"];
-//                                           NSNumber      *lon          = [coordinates objectAtIndex:0];
-//                                           NSNumber      *lat          = [coordinates objectAtIndex:1];
-                                           NSNumber      *lon          = [coordinates objectForKey:@"lat"];
-                                           NSNumber      *lat          = [coordinates objectForKey:@"lng"];
+                                           NSString      *address      = [placemark objectForKey:@"address"];
+                                           NSDictionary  *point        = [placemark objectForKey:@"Point"];
+                                           NSArray       *coordinates  = [point objectForKey:@"coordinates"];
+                                           NSNumber      *lon          = [coordinates objectAtIndex:0];
+                                           NSNumber      *lat          = [coordinates objectAtIndex:1];
                                          
                                            MKPointAnnotation *place = [[MKPointAnnotation alloc] init];
                                            place.title = address;
