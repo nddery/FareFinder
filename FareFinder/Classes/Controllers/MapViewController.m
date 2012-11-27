@@ -7,13 +7,22 @@
 //
 
 #import "MapViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController ()
-
+@interface MapViewController () <MKMapViewDelegate,
+                                  CLLocationManagerDelegate>
+  @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+  @property (strong, nonatomic) CLLocationManager *locationManager;
 @end
 
 @implementation MapViewController
 
+@synthesize startPoint      = _startPoint;
+@synthesize endPoint        = _endPoint;
+@synthesize mapView         = _mapView;
+@synthesize locationManager = _locationManager;
+
+#pragma mark - View lifecycle
 - (void)viewDidLoad
 {
   [super viewDidLoad];
