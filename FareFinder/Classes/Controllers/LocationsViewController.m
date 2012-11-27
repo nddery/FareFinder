@@ -78,6 +78,7 @@
   }
   else if ( [segue.identifier isEqualToString:@"loadResultsViewController"] ) {
     // ResultsViewController *vc = [segue destinationViewController];
+    [_data retrieveDirections];
   }
 }
 
