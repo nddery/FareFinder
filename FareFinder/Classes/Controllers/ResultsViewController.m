@@ -12,21 +12,27 @@
 
 @interface ResultsViewController ()
   @property DataSingleton *data;
+  // Declare these primitive as nonatomic so we can define a getter without
+  // defining a setter.
   @property float price;
-  @property float time;
+  @property (strong, nonatomic) NSString *time;
   @property float km;
-  @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-  @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) MKMapView  *map;
+  @property (weak, nonatomic) IBOutlet UILabel *priceField;
+  @property (weak, nonatomic) IBOutlet UILabel *timeField;
+  @property (weak, nonatomic) IBOutlet UILabel *kmField;
   - (IBAction)mapButtonPressed:(id)sender;
+  - (void)waitForDataToBeLoaded;
 @end
 
 @implementation ResultsViewController
 
 @synthesize data        = _data;
-@synthesize scrollView  = _scrollView;
-@synthesize mapView     = _mapView;
-@synthesize map         = _map;
+@synthesize price       = _price;
+@synthesize time        = _time;
+@synthesize km          = _km;
+@synthesize priceField  = _priceField;
+@synthesize timeField   = _timeField;
+@synthesize kmField     = _kmField;
 
 #pragma mark - IBActions
 - (void)mapButtonPressed:(id)sender
@@ -69,8 +75,37 @@
 //  _map = [[MKMapView alloc] initWithFrame:CGRectMake(0, -(appDim.height - 50), appDim.width, appDim.height - 50)];
 //  _map = [[MKMapView alloc] initWithFrame:CGRectMake(0, appDim.width, 320, 400)];
 //  [self.view addSubview:_map];
-  
-  // Get the path
+  [self waitForDataToBeLoaded];
+}
+
+
+- (void)waitForDataToBeLoaded
+{
+  if ( _data.route == nil ) {
+    [self performSelector:@selector(waitForDataToBeLoaded) withObject:self afterDelay:0.1];
+  }
+  else {
+    // Getters aren't even f**** called (sorry getting late and i'm tired/pissed a bit)
+    // Define those here, might even be better anyway...
+    // KM
+    NSArray *legs = [_data.route objectForKey:@"legs"];
+    NSDictionary *foo = [legs objectAtIndex:0];
+    NSDictionary *distance = [foo objectForKey:@"distance"];
+    _km = [[distance objectForKey:@"text"] floatValue];
+    [_kmField setText:[NSString stringWithFormat:@"Ride lenght: %.2f km", _km]];
+    
+    // Price
+    float startingPrice = 3;
+    float pricePerKm = 1;
+//    float priceForMinuteWaited = 2;
+    _price = startingPrice + ( pricePerKm * _km );
+    [_priceField setText:[NSString stringWithFormat:@"$%.2f", _price]];
+    
+    // Time
+    NSDictionary *duration = [foo objectForKey:@"duration"];
+    _time = [duration objectForKey:@"text"];
+    [_timeField setText:_time];
+  }
 }
 
 

@@ -24,6 +24,7 @@
 @synthesize startPoint      = _startPoint;
 @synthesize endPoint        = _endPoint;
 @synthesize polyline        = _polyline;
+@synthesize route           = _route;
 
 #pragma mark - Data queries
 // http://iosguy.com/tag/mkmapview/
@@ -33,7 +34,6 @@
     _startPoint = _currentLocation;
   
 	NSString *urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&sensor=true", _startPoint.coordinate.latitude, _startPoint.coordinate.longitude, _endPoint.coordinate.latitude, _endPoint.coordinate.longitude];
-  NSLog(@"%@", urlString);
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
   
   AFJSONRequestOperation *operation = [AFJSONRequestOperation
@@ -41,12 +41,16 @@
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
                                        {
                                          NSArray *routes = [JSON objectForKey:@"routes"];
-                                         NSDictionary *route = [routes lastObject];
-                                         if ( route ) {
+                                         _route = [routes lastObject];
+                                         if ( _route ) {
                                            // @TODO: Implement sub/pub pattern
-                                           NSString *overviewPolyline = [[route objectForKey: @"overview_polyline"] objectForKey:@"points"];
+                                           NSString *overviewPolyline = [[_route objectForKey: @"overview_polyline"] objectForKey:@"points"];
                                            NSMutableArray *p = [self decodePolyLine:overviewPolyline];
                                            _polyline = [self createPolylineFromArray:p];
+                                         }
+                                         else {
+                                           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not load results" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                           [alertView show];
                                          }
                                        }
                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
@@ -100,7 +104,6 @@
   _currentLocation.title = @"My Location";
   CLLocationCoordinate2D c = CLLocationCoordinate2DMake(manager.location.coordinate.latitude, manager.location.coordinate.longitude);
   _currentLocation.coordinate = c;
-  NSLog(@"%@", _currentLocation);
   
   // Stop querying for location, we have what we came for.
 //  [_locationManager stopUpdatingLocation];

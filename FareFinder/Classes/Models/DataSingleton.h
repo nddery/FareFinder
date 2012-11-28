@@ -14,8 +14,8 @@
 @property (strong, nonatomic) MKPointAnnotation *currentLocation;
 @property (strong, nonatomic) MKPointAnnotation *startPoint;
 @property (strong, nonatomic) MKPointAnnotation *endPoint;
-@property (strong, nonatomic) NSMutableArray    *pathInformation;
 @property (strong, nonatomic) MKPolyline        *polyline;
+@property (strong, nonatomic) NSDictionary      *route;
 
 + (id)sharedInstance;
 
