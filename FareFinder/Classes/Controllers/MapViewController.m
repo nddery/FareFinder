@@ -70,27 +70,61 @@
   topLeftCoord.longitude = [[ne objectForKey:@"lng"] floatValue];
   
   // Values are good...
-  //NSLog(@"%f, %f", [[ne objectForKey:@"lat"] floatValue], [[ne objectForKey:@"lng"] floatValue]);
-  //NSLog(@"%f, %f", [[sw objectForKey:@"lat"] floatValue], [[sw objectForKey:@"lng"] floatValue]);
+  NSLog(@"%f, %f", [[ne objectForKey:@"lat"] floatValue], [[ne objectForKey:@"lng"] floatValue]);
+  NSLog(@"%f, %f", [[sw objectForKey:@"lat"] floatValue], [[sw objectForKey:@"lng"] floatValue]);
   
   CLLocationCoordinate2D bottomRightCoord;
   bottomRightCoord.latitude = [[sw objectForKey:@"lat"] floatValue];
   bottomRightCoord.longitude = [[sw objectForKey:@"lng"] floatValue];
   
+  
+  MKCoordinateSpan s = MKCoordinateSpanMake(fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1, fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1);
+  CLLocationCoordinate2D c = CLLocationCoordinate2DMake(topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5, topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5);
+  MKCoordinateRegion region = MKCoordinateRegionMake(c, s);
+  
+  
+//  region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
+//  region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
+//  region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1;
+  
+  // Add a little extra space on the sides
+//  region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 10;
+  
+  // @TODO: Trying to set this region gives an error saying values are nil.. which is a lie.
+  region = [_mapView regionThatFits:region];
+ [_mapView setRegion:region animated:YES];
+  
+//  MKCoordinateRegion newRegion = MKCoordinateRegionMakeWithDistance(bottomRightCoord, 500, 500);
+//  [_mapView setRegion:newRegion animated:YES];
+  
+  
+  
+  
+  CLLocationCoordinate2D topLeftCoord;
+  topLeftCoord.latitude = -90;
+  topLeftCoord.longitude = 180;
+  
+  CLLocationCoordinate2D bottomRightCoord;
+  bottomRightCoord.latitude = 90;
+  bottomRightCoord.longitude = -180;
+  
+  for(MapAnnotation* annotation in mapView.annotations)
+  {
+    topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
+    topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude);
+    
+    bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude);
+    bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, annotation.coordinate.latitude);
+  }
+  
   MKCoordinateRegion region;
   region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
   region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
-  region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1;
+  region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1; // Add a little extra space on the sides
+  region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1; // Add a little extra space on the sides
   
-  // Add a little extra space on the sides
-  region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1;
-  
-  // @TODO: Trying to set this region gives an error saying values are nil.. which is a lie.
-//  region = [_mapView regionThatFits:region];
-//  [_mapView setRegion:region animated:YES];
-  
-  MKCoordinateRegion newRegion = MKCoordinateRegionMakeWithDistance(bottomRightCoord, 500, 500);
-  [_mapView setRegion:newRegion animated:YES];
+  region = [mapView regionThatFits:region];
+  [mapView setRegion:region animated:YES];
 }
 
 
