@@ -24,6 +24,7 @@
 		37B61409166501870022D381 /* DataSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B61408166501870022D381 /* DataSingleton.m */; };
 		37ECB5A01665A9940005364B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37ECB59E1665A9940005364B /* Localizable.strings */; };
 		37ECB5AD1665C0D30005364B /* Map_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 37ECB5AC1665C0D30005364B /* Map_big.png */; };
+		37ECB5B81665CF060005364B /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ECB5B71665CF060005364B /* Annotation.m */; };
 		37ED166216607B1E0058498D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED166116607B1E0058498D /* UIKit.framework */; };
 		37ED166416607B1E0058498D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED166316607B1E0058498D /* Foundation.framework */; };
 		37ED166616607B1E0058498D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED166516607B1E0058498D /* CoreGraphics.framework */; };
@@ -74,6 +75,8 @@
 		37B61408166501870022D381 /* DataSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataSingleton.m; path = Classes/Models/DataSingleton.m; sourceTree = "<group>"; };
 		37ECB59F1665A9940005364B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37ECB5AC1665C0D30005364B /* Map_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map_big.png; sourceTree = "<group>"; };
+		37ECB5B61665CF060005364B /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Annotation.h; path = Classes/Views/Annotation.h; sourceTree = "<group>"; };
+		37ECB5B71665CF060005364B /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Annotation.m; path = Classes/Views/Annotation.m; sourceTree = "<group>"; };
 		37ED165D16607B1E0058498D /* FareFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FareFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ED166116607B1E0058498D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37ED166316607B1E0058498D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -160,6 +163,8 @@
 		3746865B1662D7A20088F272 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				37ECB5B61665CF060005364B /* Annotation.h */,
+				37ECB5B71665CF060005364B /* Annotation.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 				37128DDD1662C59600EFBF50 /* ResultsViewController.m in Sources */,
 				372B256316644B270037D64F /* MapViewController.m in Sources */,
 				37B61409166501870022D381 /* DataSingleton.m in Sources */,
+				37ECB5B81665CF060005364B /* Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

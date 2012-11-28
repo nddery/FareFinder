@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "DataSingleton.h"
+#import "Annotation.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -96,6 +97,25 @@
 //  
 ////  MKCoordinateRegion newRegion = MKCoordinateRegionMakeWithDistance(bottomRightCoord, 500, 500);
 ////  [_mapView setRegion:newRegion animated:YES];
+  
+  // Move to current location for a start
+  // Move the map to the new location.
+  MKCoordinateRegion newRegion = MKCoordinateRegionMakeWithDistance(_data.currentLocation.coordinate, 500, 500);
+  [_mapView setRegion:newRegion animated:YES];
+  
+  // @TODO: Annotaion aren't at the same place as the polyline.. ?
+  // Add an annotation near the newLocation.
+//  Annotation *startAnnotation = [[Annotation alloc] init];
+//  [startAnnotation setLatitude:_data.startPoint.coordinate.latitude + 0.001];
+//  [startAnnotation setLongitude:_data.startPoint.coordinate.longitude + 0.001];
+//  [startAnnotation setName:_data.startPoint.title];
+//  [_mapView addAnnotation:startAnnotation];
+//  
+//  Annotation *endAnnotation = [[Annotation alloc] init];
+//  [endAnnotation setLatitude:_data.endPoint.coordinate.latitude + 0.001];
+//  [endAnnotation setLongitude:_data.endPoint.coordinate.longitude + 0.001];
+//  [endAnnotation setName:_data.endPoint.title];
+//  [_mapView addAnnotation:endAnnotation];
 }
 
 
