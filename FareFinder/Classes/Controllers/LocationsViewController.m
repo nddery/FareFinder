@@ -77,7 +77,6 @@
     [vc setCurrentSearch:_selectedTextField.text];
   }
   else if ( [segue.identifier isEqualToString:@"loadResultsViewController"] ) {
-    // ResultsViewController *vc = [segue destinationViewController];
     [_data retrieveDirections];
   }
 }
@@ -108,6 +107,10 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  // Do this here so it "stays" even if pushing back
+  [self setTitle:NSLocalizedString(@"appname", nil)];
+  [self.navigationItem setHidesBackButton:YES animated:YES];
   
   _data = [DataSingleton sharedInstance];
   

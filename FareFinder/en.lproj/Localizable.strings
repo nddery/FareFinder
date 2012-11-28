@@ -5,4 +5,8 @@
   Created by Nicolas Duvieusart Dery on 12-11-27.
   Copyright (c) 2012 Nicolas Duvieusart Dery. All rights reserved.
 */
-"appname" = "Fare Finder";
+"appname"       = "Fare Finder";
+"resultstitle"  = "Results";
+"loadresult"    = "Could not load results.";
+"firstline"     = "It should cost you about";
+"duration"      = "for %.2f km in approximately %@";

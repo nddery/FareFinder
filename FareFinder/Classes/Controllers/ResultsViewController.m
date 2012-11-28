@@ -14,25 +14,25 @@
   @property DataSingleton *data;
   // Declare these primitive as nonatomic so we can define a getter without
   // defining a setter.
-  @property float price;
-  @property (strong, nonatomic) NSString *time;
   @property float km;
+  @property (strong, nonatomic) NSString *time;
+  @property float price;
   @property (weak, nonatomic) IBOutlet UILabel *priceField;
-  @property (weak, nonatomic) IBOutlet UILabel *timeField;
-  @property (weak, nonatomic) IBOutlet UILabel *kmField;
+  @property (weak, nonatomic) IBOutlet UILabel *durationField;
+  @property (weak, nonatomic) IBOutlet UILabel *firstlineField;
   - (IBAction)mapButtonPressed:(id)sender;
   - (void)waitForDataToBeLoaded;
 @end
 
 @implementation ResultsViewController
 
-@synthesize data        = _data;
-@synthesize price       = _price;
-@synthesize time        = _time;
-@synthesize km          = _km;
-@synthesize priceField  = _priceField;
-@synthesize timeField   = _timeField;
-@synthesize kmField     = _kmField;
+@synthesize data           = _data;
+@synthesize price          = _price;
+@synthesize time           = _time;
+@synthesize km             = _km;
+@synthesize priceField     = _priceField;
+@synthesize durationField  = _durationField;
+@synthesize firstlineField = _firstlineField;
 
 #pragma mark - IBActions
 - (void)mapButtonPressed:(id)sender
@@ -55,6 +55,9 @@
 {
   [super viewDidLoad];
   
+  [self setTitle:NSLocalizedString(@"resultstitle", nil)];
+  
+  
 //  CGSize appDim = [[UIScreen mainScreen] applicationFrame].size;
   
   _data = [DataSingleton sharedInstance];
@@ -65,16 +68,6 @@
                                                  blue:227/255.f
                                                 alpha:1]];
   
-  // @TODO: WTF can't set frame for a IB map ?????
-  // Adjust the height of the map.
-//  [_mapView setFrame:CGRectMake(0, -(appDim.height - 50), appDim.width, appDim.height-50)];
-//  [_mapView setFrame:CGRectMake(0, 0, 320, 400)];
-//  NSLog(@"%d", _mapView.frame.size.height);
-//  // Also need to adjust scroll view height
-//  [_scrollView setContentSize:CGSizeMake(appDim.width, _scrollView.frame.size.height + _mapView.frame.size.height)];
-//  _map = [[MKMapView alloc] initWithFrame:CGRectMake(0, -(appDim.height - 50), appDim.width, appDim.height - 50)];
-//  _map = [[MKMapView alloc] initWithFrame:CGRectMake(0, appDim.width, 320, 400)];
-//  [self.view addSubview:_map];
   [self waitForDataToBeLoaded];
 }
 
@@ -92,7 +85,14 @@
     NSDictionary *foo = [legs objectAtIndex:0];
     NSDictionary *distance = [foo objectForKey:@"distance"];
     _km = [[distance objectForKey:@"text"] floatValue];
-    [_kmField setText:[NSString stringWithFormat:@"Ride lenght: %.2f km", _km]];
+    
+    // Duration
+    NSDictionary *duration = [foo objectForKey:@"duration"];
+    _time = [duration objectForKey:@"text"];
+    NSLog(@"%.2f", _km);
+    NSLog(@"%@", _time);
+    
+    [_durationField setText:[NSString stringWithFormat:NSLocalizedString(@"duration", nil), _km, _time]];
     
     // Price
     float startingPrice = 3.3;
@@ -101,10 +101,7 @@
     _price = startingPrice + ( pricePerKm * _km );
     [_priceField setText:[NSString stringWithFormat:@"$%.2f", _price]];
     
-    // Time
-    NSDictionary *duration = [foo objectForKey:@"duration"];
-    _time = [duration objectForKey:@"text"];
-    [_timeField setText:_time];
+    [_firstlineField setText:NSLocalizedString(@"firstline", nil)];
   }
 }
 

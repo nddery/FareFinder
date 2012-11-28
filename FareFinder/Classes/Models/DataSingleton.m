@@ -49,7 +49,7 @@
                                            _polyline = [self createPolylineFromArray:p];
                                          }
                                          else {
-                                           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not load results" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"loaderror" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                                            [alertView show];
                                          }
                                        }

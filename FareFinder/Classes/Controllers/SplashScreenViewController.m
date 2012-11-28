@@ -30,7 +30,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
   if ( [ [segue identifier] isEqualToString:@"loadLocationsViewController" ] ) {
-    
   }
 }
 
@@ -39,6 +38,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  [self setTitle:NSLocalizedString(@"appname", nil)];
   
   /*
    This is a splash screen, after the view has loaded, fade out the logo,
