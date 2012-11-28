@@ -3,7 +3,7 @@ Fare Finder
 
 Description
 -----------
-CabCalculator provides an easy and convenient way to calculate the cost of you
+Fare Finder provides an easy and convenient way to calculate the cost of you
 next cab ride. Provide your destination and we'll take care of the rest. You can
 optionally choose your departure location too.
 
