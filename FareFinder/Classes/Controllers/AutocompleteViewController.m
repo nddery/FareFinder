@@ -86,7 +86,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
 	NSString *urlEncode = [query urlEncode];
   // Pass in ll and spn for location biased results
   // See https://developers.google.com/maps/documentation/geocoding/v2/?hl=fr#Viewports
-	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&hl=%@&oe=UTF8&ll=%f,%f&spn=0.247048,0.294914", urlEncode, [[NSLocale currentLocale] localeIdentifier], _data.currentLocation.coordinate.latitude, _data.currentLocation.coordinate.longitude];
+  // @TODO: This ain't searhing in our vincinity.. even though the span is the same as the one used for the map
+  // view if I entered my address.. so should be in mtl..
+	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&hl=%@&ll=%f,%f&spn=0.050944,0.017523", urlEncode, [[NSLocale currentLocale] localeIdentifier], _data.currentLocation.coordinate.latitude, _data.currentLocation.coordinate.longitude];
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
   
   AFJSONRequestOperation *operation = [AFJSONRequestOperation

@@ -10,3 +10,4 @@
 "loadresult"    = "Could not load results.";
 "firstline"     = "It should cost you about";
 "duration"      = "for %.2f km in approximately %@";
+"mapview"       = "Itinerary";
