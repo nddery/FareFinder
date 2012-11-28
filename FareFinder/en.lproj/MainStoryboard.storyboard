@@ -305,43 +305,6 @@
         <image name="Logo.png" width="320" height="480"/>
         <image name="Map.png" width="320" height="50"/>
     </resources>
-    <classes>
-        <class className="AutocompleteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AutocompleteViewController.h"/>
-        </class>
-        <class className="LocationsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="calculatePressed:"/>
-                <relationship kind="action" name="endDestinationBegin:"/>
-                <relationship kind="action" name="startDestinationBegin:"/>
-                <relationship kind="outlet" name="calculateButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="endDestination" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="startDestination" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ResultsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="mapButtonPressed:"/>
-                <relationship kind="outlet" name="kmField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="priceField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeField" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SplashScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SplashScreenViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

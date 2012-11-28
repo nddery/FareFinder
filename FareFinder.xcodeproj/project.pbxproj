@@ -22,6 +22,7 @@
 		376FBE8E16630A970005E246 /* LocationsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 376FBE8B16630A970005E246 /* LocationsBG.png */; };
 		376FBE8F16630A970005E246 /* LocationsBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376FBE8C16630A970005E246 /* LocationsBG@2x.png */; };
 		37B61409166501870022D381 /* DataSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B61408166501870022D381 /* DataSingleton.m */; };
+		37ECB5A01665A9940005364B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37ECB59E1665A9940005364B /* Localizable.strings */; };
 		37ED166216607B1E0058498D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED166116607B1E0058498D /* UIKit.framework */; };
 		37ED166416607B1E0058498D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED166316607B1E0058498D /* Foundation.framework */; };
 		37ED166616607B1E0058498D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED166516607B1E0058498D /* CoreGraphics.framework */; };
@@ -70,6 +71,7 @@
 		376FBE8C16630A970005E246 /* LocationsBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LocationsBG@2x.png"; sourceTree = "<group>"; };
 		37B61407166501870022D381 /* DataSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataSingleton.h; path = Classes/Models/DataSingleton.h; sourceTree = "<group>"; };
 		37B61408166501870022D381 /* DataSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataSingleton.m; path = Classes/Models/DataSingleton.m; sourceTree = "<group>"; };
+		37ECB59F1665A9940005364B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37ED165D16607B1E0058498D /* FareFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FareFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ED166116607B1E0058498D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37ED166316607B1E0058498D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,6 +170,24 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		37ECB5A21665A99F0005364B /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				37ECB5A31665AA570005364B /* en */,
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
+		37ECB5A31665AA570005364B /* en */ = {
+			isa = PBXGroup;
+			children = (
+				37ECB59E1665A9940005364B /* Localizable.strings */,
+				37ED166A16607B1E0058498D /* InfoPlist.strings */,
+				37ED167916607B1E0058498D /* MainStoryboard.storyboard */,
+			);
+			name = en;
+			sourceTree = "<group>";
+		};
 		37ED165216607B1E0058498D = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				37F14F1316612E1900B7B903 /* Classes */,
-				37ED167916607B1E0058498D /* MainStoryboard.storyboard */,
+				37ECB5A21665A99F0005364B /* Localization */,
 				37128DDE1662C85D00EFBF50 /* Images */,
 				37ED166816607B1E0058498D /* Supporting Files */,
 			);
@@ -215,7 +235,6 @@
 				37ED167016607B1E0058498D /* AppDelegate.h */,
 				37ED167116607B1E0058498D /* AppDelegate.m */,
 				37ED166916607B1E0058498D /* FareFinder-Info.plist */,
-				37ED166A16607B1E0058498D /* InfoPlist.strings */,
 				37ED166D16607B1E0058498D /* main.m */,
 				37ED166F16607B1E0058498D /* FareFinder-Prefix.pch */,
 				37F14F0C1661293100B7B903 /* Icon.png */,
@@ -360,6 +379,7 @@
 				372B255E1664495D0037D64F /* Map-568h@2x in Resources */,
 				372B255F1664495D0037D64F /* Map.png in Resources */,
 				372B25601664495D0037D64F /* Map@2x.png in Resources */,
+				37ECB5A01665A9940005364B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +414,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		37ECB59E1665A9940005364B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37ECB59F1665A9940005364B /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		37ED166A16607B1E0058498D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
