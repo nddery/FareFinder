@@ -95,9 +95,9 @@
     [_kmField setText:[NSString stringWithFormat:@"Ride lenght: %.2f km", _km]];
     
     // Price
-    float startingPrice = 3;
-    float pricePerKm = 1;
-//    float priceForMinuteWaited = 2;
+    float startingPrice = 3.3;
+    float pricePerKm = 1.6;
+//    float priceForMinuteWaited = 0.6;
     _price = startingPrice + ( pricePerKm * _km );
     [_priceField setText:[NSString stringWithFormat:@"$%.2f", _price]];
     
